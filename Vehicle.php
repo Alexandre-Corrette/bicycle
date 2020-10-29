@@ -21,18 +21,37 @@ class Vehicle
     * @var integer
     */
     private $nbWheels;
+    private $energy;
+    private $energyLevel;
 
-    public function __construct(string $color, int $nbSeats)
+    public function __construct(string $color, int $nbSeats, string $energy)
     {
         $this->color = $color;
         $this->nbSeats = $nbSeats;
+        $this->energy = $energy;
+    }
+    public function getCurrentSpeed(): int
+    {
+        $this->currentSpeed = $currentSpeed;
     }
 
+    public function setCurrentSpeed(int $currentSpeed): void
+    {
+        if($currentSpeed >= 0){
+            $this->currentSpeed = $currentSpeed;
+        }
+    }
     public function forward(): string
     {
-        $this->currentSpeed = 15;
-        return "Go !";
+        if ($this->currentSpeed>0)
+        {
+            return "Go !";
+        }else 
+        {
+            return "I'm Stopped!";
+        }
     }
+   
 
     public function brake(): string
     {
@@ -46,17 +65,7 @@ class Vehicle
         return $sentence;
     }
 
-    public function getCurrentSpeed(): int
-    {
-        return $this->currentSpeed;
-    }
-
-    public function setCurrentSpeed(int $currentSpeed): void
-    {
-        if($currentSpeed >= 0){
-            $this->currentSpeed = $currentSpeed;
-        }
-    }
+   
 
     public function getColor(): string
     {
@@ -86,6 +95,27 @@ class Vehicle
     public function setNbWheels(int $nbWheels): void
     {
         $this->nbWheels = $nbWheels;
+    }
+    public function setEnergyLevel (int $energyLevel)
+    {
+        if ($energyLevel >= 0) 
+        {
+         $this-> energyLevel = $energyLevel;
+        }
+    }
+    public function getEnergyLevel(): INT
+    {
+        $this->EnergyLevel = $energyLevel;
+    }
+    public function stopTheCar()
+    {   $sentence='';
+        while($this->energyLevel>0)
+        {   
+            $this->energyLevel--;
+            $sentence .='This car runs great!';
+        
+        }$sentence .='We should full-up the Fuel tank...';
+        return $sentence;
     }
 }
 

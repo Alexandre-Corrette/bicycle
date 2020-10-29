@@ -1,5 +1,7 @@
 <?php
-class Bicycle {
+require_once 'Vehicle.php';
+class Bicycle extends Vehicle
+ {
    /* @var string
     */
    public $color;
@@ -17,12 +19,16 @@ class Bicycle {
    */
    public $nbWheels;
 
-   public function forward()
-{
-    $this->currentSpeed = 15;
-
-    return "Go !";
-}
+   public function forward(): string
+   {
+       if ($this->currentSpeed>0)
+       {
+           return "Go !";
+       }else 
+       {
+           return "I'm Stopped!";
+       }
+   }
 
 public function brake(): string
 {

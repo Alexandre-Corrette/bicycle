@@ -2,7 +2,13 @@
 // index.php
 
 require_once 'Bicycle.php';
-$bike = new Bicycle();
+require_once 'Car.php';
+require_once 'MotorWay.php';
+require_once 'PedestrianWay.php';
+require_once 'ResidentialWay.php';
+require_once 'Truck.php';
+
+$bike = new Bicycle('red', '1', 'man');
 var_dump($bike);
 echo $bike->forward();
 echo '<br> Vitesse du vélo : ' . $bike->currentSpeed . ' km/h' . '<br>';
@@ -10,19 +16,24 @@ echo $bike->brake();
 echo '<br> Vitesse du vélo : ' . $bike->currentSpeed . ' km/h' . '<br>';
 echo $bike->brake();
 
-require_once 'Cars.php';
+
 $blueCar = new Car('blue', '4', 'Fuel');
-$blueCar->getCurrentSpeed(0);
+$blueCar->setCurrentSpeed(0);
 var_dump($blueCar);
 echo $blueCar->forward();
 $blueCar->setEnergyLevel(5);
 echo $blueCar->stopTheCar();
 
-require_once 'Truck.php';
+
 $truck= new Truck('white', '3', 'Fuel', '100');
-$truck->getCurrentSpeed(50);
+$truck->setCurrentSpeed(50);
 echo $truck->forward();
 $truck->setEnergyLevel(15);
 echo $truck->stopTheCar();
 $truck->setActualStorage(55);
 
+$motorWay = new MotorWay();
+$motorWay->setNbLane(4);
+$motorWay->setMaxSpeed(130);
+$motorWay->addVehicle(new Car('blue', '4', 'Fuel'));
+var_dump($motorWay);

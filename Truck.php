@@ -1,14 +1,13 @@
 <?php
-require_once 'vehicule.php';
+require_once 'Vehicle.php';
 
-class Truck extends vehicule {
+class Truck extends vehicle {
     private $storageCapacity;
-    private $actualSorage = 0;
+    private $actualStorage = 0;
 
     public function __construct(string $color, INT $nbSeats, string $energy, INT $storageCapacity)
     {
-        parent::__construct($color, $nbSeats);
-        $this->energy = $energy;
+        parent::__construct($color, $nbSeats, $energy);
         $this->storageCapacity = $storageCapacity;
     }
     public function getActualStorage(): string
