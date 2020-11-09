@@ -18,7 +18,7 @@ echo $bike->brake();
 
 
 $blueCar = new Car('blue', '4', 'Fuel');
-$blueCar->setCurrentSpeed(0);
+$blueCar->setCurrentSpeed(130);
 var_dump($blueCar);
 echo $blueCar->forward();
 $blueCar->setEnergyLevel(5);
@@ -37,3 +37,20 @@ $motorWay->setNbLane(4);
 $motorWay->setMaxSpeed(130);
 $motorWay->addVehicle(new Car('blue', '4', 'Fuel'));
 var_dump($motorWay);
+
+$blueCar->setParkBrake(true);
+var_dump($blueCar);
+try 
+{
+    echo $blueCar->start();
+}
+catch(Exception $e)
+{
+    echo"Exception received: ". $e->getMessage(). "<br>";
+    $blueCar->setParkBrake(false);
+}
+finally 
+{
+    echo "My car is rolling like a donut";
+}
+var_dump($blueCar);
