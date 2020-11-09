@@ -53,4 +53,5 @@ finally
 {
     echo "My car is rolling like a donut";
 }
+$blueCar->switchOff();
 var_dump($blueCar);

@@ -1,9 +1,11 @@
 <?php
 require_once 'Vehicle.php';
+require_once 'LightableInterface.php';
 
-class Car extends Vehicle
+class Car extends Vehicle implements LightableInterface
 {
     private $hasParkBrake;
+    private $lights;
    
     /*public function setCurrentSpeed(int $currentSpeed)
     {
@@ -40,6 +42,16 @@ class Car extends Vehicle
          $this-> nbSeats = $nbSeats;
         }
     }*/
+    public function switchOn(): bool
+    {   
+        $this->lights = true;
+        return $this->lights;
+    }
+    public function switchOff(): bool
+    {   
+        $this->lights = false;
+        return $this->lights;
+    }
     public function getEnergy (string $energy)
     {
         if ($energy != null ) 
