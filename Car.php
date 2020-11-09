@@ -3,6 +3,7 @@ require_once 'Vehicle.php';
 
 class Car extends Vehicle
 {
+    private $hasParkBrake;
    
     /*public function setCurrentSpeed(int $currentSpeed)
     {
@@ -45,6 +46,24 @@ class Car extends Vehicle
         {
          $this-> energy = $energy;
         }
+    }
+    public function getParkBrake(): bool
+    {
+        return $this->hasParkBrake = $hasParkBrake;
+    }
+
+    public function setParkBrake(Bool $hasParkBrake): void
+    {
+        $this->hasParkBrake = $hasParkBrake;
+    }
+
+    public function start(): string 
+    {
+        if ($this->hasParkBrake == true)
+        {
+            throw new Exception("Frein à main actif");
+        }
+       return 'start'; 
     }
   
    
